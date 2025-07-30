@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aplikasi Peminjaman Laboratorium Komputer MAM 1 Paciran</title>
+    <meta name="description" content="Sistem manajemen jadwal peminjaman laboratorium komputer MAM 1 Paciran untuk guru">
+    <meta name="keywords" content="jadwal, lab komputer, laboratorium, peminjaman, guru, MAM 1 Paciran">
+    <meta property="og:title" content="Aplikasi Peminjaman Laboratorium Komputer MAM 1 Paciran">
+    <meta property="og:description" content="Sistem manajemen jadwal peminjaman laboratorium komputer MAM 1 Paciran untuk guru">
+    <meta name="twitter:title" content="Aplikasi Peminjaman Laboratorium Komputer MAM 1 Paciran">
+    <meta name="twitter:description" content="Sistem manajemen jadwal peminjaman laboratorium komputer MAM 1 Paciran untuk guru">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --danger-color: #dc2626;
+            --warning-color: #d97706;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--background-color)] text-[var(--text-primary)] font-sans;
+        }
+    }
+
+    @layer components {
+        .btn {
+            @apply px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 text-sm sm:text-base;
+        }
+        
+        .btn-primary {
+            @apply bg-[var(--primary-color)] text-white hover:bg-[var(--primary-hover)] focus:ring-[var(--primary-color)];
+        }
+        
+        .btn-secondary {
+            @apply bg-[var(--secondary-color)] text-white hover:bg-slate-600 focus:ring-[var(--secondary-color)];
+        }
+        
+        .btn-danger {
+            @apply bg-[var(--danger-color)] text-white hover:bg-red-700 focus:ring-[var(--danger-color)];
+        }
+        
+        .card {
+            @apply bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-3 sm:p-6;
+        }
+        
+        .form-input {
+            @apply w-full px-3 py-2 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent text-sm sm:text-base;
+        }
+        
+        .form-label {
+            @apply block text-sm font-medium text-[var(--text-primary)] mb-2;
+        }
+        
+        .schedule-slot {
+            @apply p-2 sm:p-3 border border-[var(--border-color)] rounded-lg text-center cursor-pointer hover:bg-gray-50 transition-colors text-xs sm:text-sm;
+        }
+        
+        .schedule-slot.occupied {
+            @apply bg-red-50 border-red-200 text-red-800 cursor-not-allowed;
+        }
+        
+        .schedule-slot.available {
+            @apply bg-green-50 border-green-200 text-green-800 hover:bg-green-100;
+        }
+        
+        .mobile-header {
+            @apply flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4;
+        }
+        
+        .mobile-nav {
+            @apply flex flex-col sm:flex-row gap-2 sm:gap-4;
+        }
+        
+        .table-responsive {
+            @apply overflow-x-auto -mx-3 sm:mx-0;
+        }
+        
+        .table-cell-mobile {
+            @apply p-1 sm:p-3 text-xs sm:text-sm;
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel" src="utils/supabase.js"></script>
+    <script type="text/babel" src="utils/auth.js"></script>
+    <script type="text/babel" src="utils/database.js"></script>
+    <script type="text/babel" src="components/LoginForm.js"></script>
+    <script type="text/babel" src="components/ScheduleGrid.js"></script>
+    <script type="text/babel" src="components/BookingModal.js"></script>
+    <script type="text/babel" src="components/TeacherBookings.js"></script>
+    <script type="text/babel" src="components/PublicSchedule.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>

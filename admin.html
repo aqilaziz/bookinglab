@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Lab Komputer MAM 1 Paciran</title>
+    <meta name="description" content="Dashboard admin untuk mengelola data guru MAM 1 Paciran">
+    <meta name="keywords" content="admin, dashboard, guru, manajemen, MAM 1 Paciran">
+    <meta property="og:title" content="Admin Dashboard - Lab Komputer MAM 1 Paciran">
+    <meta property="og:description" content="Dashboard admin untuk mengelola data guru MAM 1 Paciran">
+    <meta name="twitter:title" content="Admin Dashboard - Lab Komputer MAM 1 Paciran">
+    <meta name="twitter:description" content="Dashboard admin untuk mengelola data guru MAM 1 Paciran">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --danger-color: #dc2626;
+            --warning-color: #d97706;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--background-color)] text-[var(--text-primary)] font-sans;
+        }
+    }
+
+    @layer components {
+        .btn {
+            @apply px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 text-sm sm:text-base;
+        }
+        
+        .btn-primary {
+            @apply bg-[var(--primary-color)] text-white hover:bg-[var(--primary-hover)] focus:ring-[var(--primary-color)];
+        }
+        
+        .btn-secondary {
+            @apply bg-[var(--secondary-color)] text-white hover:bg-slate-600 focus:ring-[var(--secondary-color)];
+        }
+        
+        .btn-danger {
+            @apply bg-[var(--danger-color)] text-white hover:bg-red-700 focus:ring-[var(--danger-color)];
+        }
+        
+        .btn-success {
+            @apply bg-[var(--success-color)] text-white hover:bg-green-700 focus:ring-[var(--success-color)];
+        }
+        
+        .card {
+            @apply bg-[var(--card-background)] rounded-lg shadow-sm border border-[var(--border-color)] p-3 sm:p-6;
+        }
+        
+        .form-input {
+            @apply w-full px-3 py-2 border border-[var(--border-color)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent text-sm sm:text-base;
+        }
+        
+        .form-label {
+            @apply block text-sm font-medium text-[var(--text-primary)] mb-2;
+        }
+        
+        .mobile-header {
+            @apply flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4;
+        }
+        
+        .mobile-nav {
+            @apply flex flex-col sm:flex-row gap-2 sm:gap-4;
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <div id="admin-root"></div>
+    
+    <script type="text/babel" src="utils/supabase.js"></script>
+    <script type="text/babel" src="utils/adminAuth.js"></script>
+    <script type="text/babel" src="utils/teacherManager.js"></script>
+    <script type="text/babel" src="utils/database.js"></script>
+    <script type="text/babel" src="components/AdminLogin.js"></script>
+    <script type="text/babel" src="components/TeacherManagement.js"></script>
+    <script type="text/babel" src="components/BookingHistory.js"></script>
+    <script type="text/babel" src="components/ExcelImport.js"></script>
+    <script type="text/babel" src="components/UsageReport.js"></script>
+    <script type="text/babel" src="admin-app.js"></script>
+</body>
+</html>
